@@ -1,14 +1,15 @@
 package control.servlet;
 
-import database.EmployeeDAO;
+import control.mapper.EmployeeMapper;
+import database.MyBatisConnection;
 import model.Employee;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -17,7 +18,9 @@ import java.util.List;
  * 学号:2017214363
  * **/
 public class AddEmployeeServlet extends HttpServlet {
-    EmployeeDAO dao = new EmployeeDAO();
+
+    public AddEmployeeServlet() throws IOException {
+    }
 
 
     @Override
@@ -28,6 +31,7 @@ public class AddEmployeeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        EmployeeMapper employeeMapper = MyBatisConnection.getEmployeeMapper(true);
         req.setCharacterEncoding("UTF-8");
         //获取表单提交的信息
         int empNo = Integer.parseInt(req.getParameter("empNo"));
@@ -41,34 +45,16 @@ public class AddEmployeeServlet extends HttpServlet {
         employee.setEmpName(empName);
         employee.setWorkSection(workSection);
 
-        //for循环判断数据库中是否存在对应数据
-        //如果不存在则进行操作，如果存在则抛出异常
-        List<Employee> empList = new ArrayList<>();
         try {
-            empList = dao.query();
-
-        } catch (SQLException e) {
+            employeeMapper.addEmployee(employee);
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-
-        for(Employee x :empList){
-            //判断数据库中是否不存在对应数据项
-            if(!x.equals(employee) && x.hashCode()!=employee.hashCode()){
-                try {
-                    dao.addEmp(employee);
-
-
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+        }finally{
+            MyBatisConnection.closeSqlSession();
         }
 
 
         req.getSession().setAttribute("employee",employee);
-
         resp.sendRedirect("/workforceManage_war_exploded/views/employee/add_success.jsp");
-
-
     }
 }

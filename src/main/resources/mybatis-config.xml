@@ -20,7 +20,6 @@
     <!-- 映射文件 -->
     <mappers>
         <mapper resource="mapper/EmployeeMapper.xml"/>
-        <mapper class="control.mapper.EmployeeMapper"/>
         <!--        E:\engineeringProject\workforceManage\src\main\java\control\mapper\EmployeeMapper.java-->
     </mappers>
 

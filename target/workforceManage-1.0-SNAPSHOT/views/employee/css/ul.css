@@ -25,11 +25,3 @@ a:hover,a:active
 {
     background-color:#7A991A;
 }
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}

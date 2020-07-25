@@ -2,8 +2,10 @@ package control.mapper;
 
 import model.Employee;
 
+import java.util.List;
+
 public interface EmployeeMapper {
-    public Employee queryEmployee() throws Exception;
+    public List<Employee> queryEmployee() throws Exception;
 
     public void addEmployee(Employee employee) throws Exception;
 

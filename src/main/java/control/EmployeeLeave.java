@@ -1,6 +1,7 @@
 package control;
 
-import database.EmployeeDAO;
+import control.mapper.EmployeeMapper;
+import database.MyBatisConnection;
 import model.Employee;
 
 import javax.servlet.ServletException;
@@ -8,14 +9,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
+
 /**
  * 开除员工的servlet
  * 作者:曾雨琳
  * 学号:2017214363
  * **/
 public class EmployeeLeave extends HttpServlet {
-    EmployeeDAO dao = new EmployeeDAO();
+
+    public EmployeeLeave() throws IOException {
+    }
 
 
     @Override
@@ -25,6 +28,7 @@ public class EmployeeLeave extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        EmployeeMapper employeeMapper = MyBatisConnection.getEmployeeMapper(true);
 
         req.setCharacterEncoding("UTF-8");
         //获取表单提交的信息
@@ -32,12 +36,18 @@ public class EmployeeLeave extends HttpServlet {
 
         Employee fireEmployee = new Employee();
         try {
-            fireEmployee =dao.selectEmp(empNo);
-            dao.deleteEmp(empNo);
+//            fireEmployee =dao.selectEmp(empNo);
+//            dao.deleteEmp(empNo);
 
-        } catch (SQLException  e) {
+            fireEmployee =  employeeMapper.selectEmployee(empNo);
+            employeeMapper.deleteEmployee(empNo);
+
+        } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            MyBatisConnection.closeSqlSession();
         }
+
 
         req.getSession().setAttribute("fireEmployee",fireEmployee);
 
