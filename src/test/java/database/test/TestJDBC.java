@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.SortedMap;
 
-public class test {
+public class TestJDBC {
 //   public static void main(String[] args) throws SQLException, ClassNotFoundException {
 //      EmployeeDAO dao = new EmployeeDAO();
 

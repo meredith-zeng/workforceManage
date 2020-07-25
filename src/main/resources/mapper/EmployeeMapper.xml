@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="control.mapper.EmployeeMapper">
+    <select id="queryEmployee" resultType="model.Employee">
+        select * from  employee
+    </select>
+
+    <insert id="addEmployee" parameterType="model.Employee">
+        insert into employee(empNo, empName, workSection)
+        values (#{empNo},#{empName},#{workSection})
+    </insert>
+
+    <delete id="deleteEmployee" parameterType="_int">
+        delete from employee
+        where empNo=#{empNo}
+    </delete>
+
+    <select id="selectEmployee" parameterType="_int" resultType="model.Employee">
+        select * from employee
+        where empNo=#{empNo}
+    </select>
+
+    <update id="updateEmployee" parameterType="model.Employee">
+        update employee set empName = #{empName}, workSection = #{workSection} where empNo = #{empNo}
+    </update>
+</mapper>

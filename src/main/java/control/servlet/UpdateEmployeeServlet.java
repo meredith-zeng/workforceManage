@@ -46,6 +46,8 @@ public class UpdateEmployeeServlet extends HttpServlet {
         List<Employee> empList = new ArrayList<>();
         try {
             empList = dao.query();
+
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -46,6 +46,7 @@ public class AddEmployeeServlet extends HttpServlet {
         List<Employee> empList = new ArrayList<>();
         try {
             empList = dao.query();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -55,6 +56,8 @@ public class AddEmployeeServlet extends HttpServlet {
             if(!x.equals(employee) && x.hashCode()!=employee.hashCode()){
                 try {
                     dao.addEmp(employee);
+
+
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
