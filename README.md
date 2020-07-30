@@ -99,3 +99,31 @@ static {
 ```
 ### Servlet中调用DAO接口踩的坑
 创建dao实例的时候要注意要放在方法里面，不能放在外面，否则会只在servelt的session生命周期开启第一次时执行，后面再执行doPost的时候sqlSession就已经被关闭无法使用了
+
+# Sping mvc编程
+1. 导入spring-context和spring-test
+```xml
+<dependencies>
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>4.3.28.RELEASE</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>4.3.28.RELEASE</version>
+      <scope>test</scope>
+    </dependency>
+</dependencies>
+```
+2. 在resources目录下创建spring-config.xml
+
+## 开发顺序
+### Model
+### DataBase
+### service
+### controller
+### view

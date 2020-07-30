@@ -3,87 +3,24 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-<!--   1、配置一个servlet名字并指向处理类-->
-    <servlet>
-
-        <servlet-name>AddEmployeeServlet</servlet-name>
-
-        <servlet-class>control.servlet.AddEmployeeServlet</servlet-class>
-
-    </servlet>
-
-    <!--    2、配置一个前台拦截请求的URL对应一个servlet名字-->
-
-    <servlet-mapping>
-
-        <servlet-name>AddEmployeeServlet</servlet-name>
-
-        <url-pattern>/servlet/AddEmployee</url-pattern>
-
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>DeleteEmployeeServlet</servlet-name>
-        <servlet-class>control.servlet.DeleteEmployeeServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>DeleteEmployeeServlet</servlet-name>
-        <url-pattern>/servlet/DeleteEmployee</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>SelectEmployeeServlet</servlet-name>
-        <servlet-class>control.servlet.SelectEmployeeServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>SelectEmployeeServlet</servlet-name>
-        <url-pattern>/servlet/SelectEmployee</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>UpdateEmployeeServlet</servlet-name>
-        <servlet-class>control.servlet.UpdateEmployeeServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>UpdateEmployeeServlet</servlet-name>
-        <url-pattern>/servlet/UpdateEmployee</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>EmployeeLeave</servlet-name>
-        <servlet-class>control.EmployeeLeave</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>EmployeeLeave</servlet-name>
-        <url-pattern>/EmployeeLeave</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>QueryEmployeeServlet</servlet-name>
-        <servlet-class>control.servlet.QueryEmployeeServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>QueryEmployeeServlet</servlet-name>
-        <url-pattern>/servlet/QueryEmployeeServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>control.servlet.LoginServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/servlet/LoginServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>LogoutServlet</servlet-name>
-        <servlet-class>control.servlet.LogoutServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>LogoutServlet</servlet-name>
-        <url-pattern>/servlet/LogoutServlet</url-pattern>
-    </servlet-mapping>
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>
+            org.springframework.web.filter.CharacterEncodingFilter
+        </filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
 
     <filter>
@@ -94,6 +31,22 @@
         <filter-name>LoginFilter</filter-name>
         <url-pattern>/views/employee/*</url-pattern>
     </filter-mapping>
+
+
+
+    <servlet>
+        <servlet-name>mvc-dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/mvc-dispatcher-servlet.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mvc-dispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
 
 
 </web-app>

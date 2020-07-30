@@ -10,12 +10,14 @@ public class Employee {
     * @工号 int empNo
     * @姓名 String empName
     * @部门 String workSection
+     * @头像路径 String empImg
     *
     * **/
 
     int empNo;
     String empName;
     String workSection;
+    String empImg;
 
     //要有无参构造函数
 
@@ -61,5 +63,13 @@ public class Employee {
 
     public void setWorkSection(String workSection) {
         this.workSection = workSection;
+    }
+
+    public String getEmpImg() {
+        return empImg;
+    }
+
+    public void setEmpImg(String empImg) {
+        this.empImg = empImg;
     }
 }

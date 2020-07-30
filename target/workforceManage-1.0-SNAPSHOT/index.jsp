@@ -37,33 +37,11 @@
 </style>
 <html>
 <head>
-    <title>阿曾的Java web多权限人力资源管理系统</title>
+    <title>阿曾的多权限人力资源管理系统</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/servlet/LoginServlet" method="post">
-    <h1>用户登陆页面</h1>
-    <hr/>
 
-        <div id="main">
-            <table>
-                <tr>
-                    <td>账号：</td>
-                    <td><input type="text" name="userId" id="userId"></td>
-                </tr>
-                <tr>
-                    <td>密码：</td>
-                    <td><input type="password" name="userPassword" id="userPassword"></td>
-                </tr>
-                <tr>
-                    <td colspan="1">
-                    </td>
-                    <td>
-                        <input type="submit" value="登陆"/>
-                    </td>
-                </tr>
-            </table>
-        </div>
+已注册的用户，去<a href="${pageContext.request.contextPath }/index/login"> 登录</a>！
 
-</form>
 </body>
 </html>

@@ -27,8 +27,10 @@ public class EmployeeMapperTest {
 
     @Test
     public void queryEmployee() throws Exception {
-        Employee employee = employeeMapper.selectEmployee(1);
-        System.out.println("工号为1的员工姓名为："+employee.getEmpName());
+        List<Employee> queryEmployee =  employeeMapper.queryEmployee();
+        for(Employee x : queryEmployee){
+            System.out.println("empName" + x.getEmpName() +",empName" +x.getEmpName());
+        }
     }
 
     @Test
@@ -58,10 +60,10 @@ public class EmployeeMapperTest {
 
     @Test
     public void selectEmployee() throws Exception {
-        List<Employee> queryEmployee =  employeeMapper.queryEmployee();
-        for(Employee x : queryEmployee){
-            System.out.println("empName" + x.getEmpName() +",empName" +x.getEmpName());
-        }
+
+
+        Employee employee = employeeMapper.selectEmployee(1199);
+        System.out.println("工号为1的员工姓名为："+employee.getEmpName());
     }
 
     @Test

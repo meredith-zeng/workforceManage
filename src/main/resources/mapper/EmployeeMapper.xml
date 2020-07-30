@@ -9,8 +9,8 @@
     </select>
 
     <insert id="addEmployee" parameterType="model.Employee">
-        insert into employee(empNo, empName, workSection)
-        values (#{empNo},#{empName},#{workSection})
+        insert into employee(empNo, empName, workSection,empImg)
+        values (#{empNo},#{empName},#{workSection},#{empImg})
     </insert>
 
     <delete id="deleteEmployee" parameterType="_int">
