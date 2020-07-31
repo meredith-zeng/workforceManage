@@ -19,11 +19,12 @@ public class LoginInterceptor implements HandlerInterceptor {
         String requestURI = request.getRequestURI();
         logger.info("请求URI为"+requestURI);
         Object userId = request.getSession().getAttribute("userId");
-        if(requestURI.contains("login")&&userId!=null&&userId!=""){
+        if(requestURI.contains("Employee")&&userId!=null&&userId!=""){
             return true;
+        }else{
+            response.sendRedirect("/user/login");
+            return false;
         }
-        response.sendRedirect("/user/login");
-        return false;
     }
 
     @Override
