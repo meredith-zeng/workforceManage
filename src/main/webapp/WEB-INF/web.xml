@@ -23,14 +23,14 @@
     </filter-mapping>
 
 
-    <filter>
-        <filter-name>LoginFilter</filter-name>
-        <filter-class>control.filter.LoginFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>LoginFilter</filter-name>
-        <url-pattern>/views/employee/*</url-pattern>
-    </filter-mapping>
+<!--    <filter>-->
+<!--        <filter-name>LoginFilter</filter-name>-->
+<!--        <filter-class>filter.LoginFilter</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>LoginFilter</filter-name>-->
+<!--        <url-pattern>/views/employee/*</url-pattern>-->
+<!--    </filter-mapping>-->
 
 
 

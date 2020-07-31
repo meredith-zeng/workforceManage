@@ -1,4 +1,4 @@
-package control.mapper;
+package mapper;
 
 import model.Employee;
 

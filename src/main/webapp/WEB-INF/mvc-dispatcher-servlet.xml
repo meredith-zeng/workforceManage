@@ -18,7 +18,7 @@
 
 
     <context:component-scan base-package="control.controller"/>
-    <context:component-scan base-package="service"/>
+    <context:component-scan base-package="control.service"/>
     <mvc:annotation-driven />
 
     <mvc:resources mapping="/static/**" location="/WEB-INF/static/"/>
@@ -65,8 +65,7 @@
 
     <!-- 配置扫描器 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <!-- 扫描cn.edu.uestc.ssm.dao这个包以及它的子包下的所有映射接口类 -->
-        <property name="basePackage" value="control.mapper" />
+        <property name="basePackage" value="mapper" />
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
     </bean>
 
@@ -84,4 +83,14 @@
     <!-- 注解事务 -->
     <tx:annotation-driven transaction-manager="transactionManager" />
 
+
+    <!-- 配置全局mapping的拦截器 -->
+    <mvc:interceptors>
+        <!-- 如果有多个拦截器，则按照顺序进行配置 -->
+        <mvc:interceptor>
+            <!-- /**表示所有URL和子URL路径 -->
+            <mvc:mapping path="/Employee/**"/>
+            <bean class="filter.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>

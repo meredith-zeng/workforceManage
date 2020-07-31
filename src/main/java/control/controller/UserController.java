@@ -1,18 +1,13 @@
 package control.controller;
 
-import com.sun.media.jfxmedia.logging.Logger;
-import model.User;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import service.UserService;
-import service.UserServiceImp;
+import control.service.UserService;
 
 import javax.servlet.http.HttpSession;
 
@@ -27,6 +22,7 @@ public class UserController {
     public String login(@RequestParam Integer userId,@RequestParam String userPassword, HttpSession session, Model model) {
         if (userService.login(userId,userPassword)) {
             logger.info("成功");
+            session.setAttribute("userId",userId);
             return "/employee/manageEmployee";
         } else {
             logger.info("失败了呢，阿曾嘤嘤嘤");
@@ -37,6 +33,7 @@ public class UserController {
 
     @RequestMapping("/logout")
     public String logout(HttpSession session, Model model){
+        session.invalidate();
         return "login/logout";
     }
 }

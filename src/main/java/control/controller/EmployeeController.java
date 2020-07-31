@@ -1,6 +1,7 @@
 package control.controller;
 
 import com.github.pagehelper.PageInfo;
+import control.service.EmployeeService;
 import model.Employee;
 
 import org.apache.commons.logging.Log;
@@ -12,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.multipart.MultipartFile;
-import service.EmployeeService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

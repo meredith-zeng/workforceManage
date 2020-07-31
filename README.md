@@ -123,7 +123,12 @@ static {
 
 ## 开发顺序
 ### Model
+根据需求和最初的设计先创建POJO类
 ### DataBase
+利用Mybatis数据库框架进行mapper中sql语句的编写
 ### service
+调用具体的sql方法进行业务逻辑的实现
 ### controller
+负责调用service中封装好的方法，接受前端的数据并且对前端的数据进行处理后再返回前端页面
 ### view
+前端页面中提交相应的数据，接收后端传来的数据并进行数据的展示

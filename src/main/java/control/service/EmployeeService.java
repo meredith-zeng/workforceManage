@@ -1,4 +1,4 @@
-package service;
+package control.service;
 
 import com.github.pagehelper.PageInfo;
 import model.Employee;

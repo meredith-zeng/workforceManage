@@ -1,14 +1,12 @@
-package service;
+package control.service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import control.mapper.EmployeeMapper;
+import mapper.EmployeeMapper;
 import model.Employee;
-import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

@@ -1,4 +1,4 @@
-package service;
+package control.service;
 
 import model.User;
 

@@ -16,15 +16,15 @@
 <hr>
 <div>
     <ul>
-        <li><a href="/Employee/addEmployee">增加员工信息</a></li>
-        <li><a href="/Employee/deleteEmployee">删除员工信息</a></li>
-        <li><a href="/Employee/updateEmployee">修改员工信息</a></li>
-        <li><a href="/Employee/selectEmployee">查询员工信息</a></li>
-        <li><a href="/Employee/fireEmployee">员工离职</a></li>
+        <li><a href="${pageContext.request.contextPath}/Employee/addEmployee">增加员工信息</a></li>
+        <li><a href="${pageContext.request.contextPath}/Employee/deleteEmployee">删除员工信息</a></li>
+        <li><a href="${pageContext.request.contextPath}/Employee/updateEmployee">修改员工信息</a></li>
+        <li><a href="${pageContext.request.contextPath}/Employee/selectEmployee">查询员工信息</a></li>
+        <li><a href="${pageContext.request.contextPath}/Employee/fireEmployee">员工离职</a></li>
     </ul>
 </div>
 <div>
-        <form action="/user/logout">
+        <form action="${pageContext.request.contextPath}/user/logout">
             <input type="submit" value="登出">
         </form>
 

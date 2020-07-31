@@ -1,5 +1,6 @@
 package control.mapper;
 
+import mapper.EmployeeMapper;
 import model.Employee;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
